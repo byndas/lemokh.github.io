@@ -1,0 +1,168 @@
+/* player1, player2 {
+  animation: colorchange 10s;
+  -webkit-animation: colorchange 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes colorchange
+{
+   0%   {background: rgba(233, 125, 123, 0.25);}
+  20%  {background: rgba(189, 68, 54, 0.25);}
+  40%  {background: rgba(161, 76, 83, 0.25);}
+  60%  {background: rgba(107, 89, 101, 0.25);}
+  80% {background: rgba(71, 105, 168, 0.25);}
+  100% {background: rgba(7, 146, 158, 0.25);}
+} */
+
+body {
+    background-image: url('images/boardBody.jpg');
+    /*backdrop-filter: contrast(110%);*/
+    filter: brightness(1.2);
+    background-color: rgba(240, 255, 255, 0.5);
+    background-blend-mode: luminosity;
+}
+  
+game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15rem;
+    margin-top: 1rem;
+}
+
+  player1 {
+    display: grid;
+    grid-template-columns: 10rem;
+    /*background-color: rgba(219, 112, 147, 0.05);*/
+    background-color: black;
+    /*background-blend-mode: luminosity;*/
+    opacity: .2;
+  }
+  
+  player2 {
+    display: grid;
+    grid-template-columns: 10rem;
+    /*background-color: rgba(219, 112, 147, 0.05);*/
+    /*background-blend-mode: screen;*/
+    background-color: black;
+    opacity: .2;
+  }
+
+  board {
+    display: grid;
+    grid-template-columns: 1fr;
+    /*   background-color: #865541; */
+    /* filter: drop-shadow(0px 0px 5000px) invert(2%); */
+  }
+  
+  .btn {
+    text-align: center;
+  }
+  
+  #blueTakenBox {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #orangeTakenBox {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 5rem;
+    margin: 2px;
+  }
+  
+  .black {
+    /* background-image: url('images/boardDark.jpg'); */
+    /*background-color: #1A3E51; #F2D5BC; #F5ECE2; */
+    background-color: rgba(32, 178, 170, .25);
+    /* background-color: rgba(7, 146, 158, 0.2); */
+    /* background-blend-mode: luminosity; */
+  }
+  
+  .white {
+    /*background-image: url('images/boardLight.jpg');*/
+    /* background-color: #865541; #A07461; #697B6B; #827276; 
+  https://github.com/lemokh/Photos/blob/master/siennaSquare.jpg?raw=true
+    */
+    /* background-color: rgba(71, 105, 168, 0.2); */
+    background-color: rgba(100, 149, 237, .25);
+    /* background-blend-mode: luminosity; */
+  }
+  
+  .takenBox > * {
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    height: 5rem;
+    opacity: .75;
+  }
+  
+  .mainLit {
+    background-color: rgba(199, 21, 133, .2) !important;
+    /*deep red --> use for check --> 220,20,60*/
+    /*background-blend-mode: luminosity;*/
+  }
+  
+  .lit {
+    /* background:
+      linear-gradient(purple 0%, red 90%), 
+      linear-gradient(to right, purple 0%, yellow 90%); */
+    /* background-blend-mode: screen, difference, lighten; */
+    /* background-color: rgba(205, 92, 92, 0.2); */
+    background-color: rgba(219, 112, 147, .2);
+    /*background-blend-mode: luminosity;*/
+  }
+  
+  .castleLit {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+  
+  .preventMateLit {
+    background-color: rgba(211, 211, 211, 0.2);
+  }
+  
+  .noClick {
+    pointer-events: none;
+  } 
+  
+  .modalBlue, .modalOrange {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
