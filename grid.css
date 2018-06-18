@@ -1,3 +1,41 @@
+@font-face {
+  font-family: VarelaRound-Regular;
+  src: url(Varela_Round/VarelaRound-Regular.ttf);
+}
+/* reset browser styles */
+/*
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1.2;
+font-size: 62.5%;
+}
+ol {
+padding-left: 1.4em;
+list-style: decimal;
+}
+ul {
+padding-left: 1.4em;
+list-style: square;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+*/
+/* end reset browser styles */
+
 /* player1, player2 {
   animation: colorchange 10s;
   -webkit-animation: colorchange 10s;
@@ -15,6 +53,11 @@
   100% {background: rgba(7, 146, 158, 0.25);}
 } */
 
+html, body {
+  height: 100%;
+  font-family: 'VarelaRound-Regular', sans-serif;
+  }
+
 body {
     background-image: url('images/boardBody.jpg');
     /*backdrop-filter: contrast(110%);*/
@@ -25,8 +68,8 @@ body {
   
 game {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1rem;
     margin-top: 1rem;
 }
 
@@ -73,7 +116,7 @@ game {
     display: flex;
   }
   
-  .cell {
+  img {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,11 +175,15 @@ game {
     background-color: rgba(211, 211, 211, 0.2);
   }
   
+  .checkMate {
+    background-color: transparent;
+  }
+
   .noClick {
     pointer-events: none;
   } 
   
-  .modalBlue, .modalOrange {
+  .modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -149,7 +196,7 @@ game {
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.modal-content {
+.modalContent {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -160,9 +207,17 @@ game {
     border-radius: 0.5rem;
 }
 
-.show-modal {
+.showModal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.time {
+  text-align: center;
+  height: 20%;
+  /* font-family: VarelaRound-Regular; */
+  font-size: 20px;
+  background-color: rgba(127, 255, 212, 0.25);
 }
