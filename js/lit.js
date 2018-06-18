@@ -1526,7 +1526,7 @@ function lit() {
 		}
     }  console.log('activeKing -->');  console.log(activeKing);
 
-	// toggleClocks();
+	toggleClocks();
 
     // pushes passivePieces that check activeKing into kingAttackers
 	passiveSide.forEach(passivePiece => {
