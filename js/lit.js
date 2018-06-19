@@ -32,8 +32,8 @@ var blueNodes = board.querySelectorAll("[data-side='blue']"),
 	};
 
 function getMinutes() {
-	userInput = document.querySelector('input').innerHTML;
-} // userInput = this.innerHTML
+	userInput = document.querySelector('input').value;
+}
 
 
 function startClock() {
@@ -515,7 +515,6 @@ function swapSide(fromDiv, toDiv) {
 
 		// updates activeSide & pieces array
 		activeSide.push(toDiv);
-		// pieces = [...activeSide, ...passiveSide];
 
 		// if not an enPassant attack, resets enPassant process
 		if (pieceToMove.dataset.name === 'pawn') {
@@ -527,6 +526,7 @@ function swapSide(fromDiv, toDiv) {
 		fromDiv.setAttribute('data-name', 'empty');
 		fromDiv.setAttribute('data-side', 'empty');
 		fromDiv.setAttribute('src', './images/transparent.png');
+		fromDiv.removeEventListener('click', wherePieceCanMove);
 	}
 	console.log('EXITS swapSide()');
 }
@@ -998,7 +998,6 @@ function kingLit() {
 	console.log('ENTERS kingLit()');
 
 	passiveSideCoversId = false;
-	// kingSpacesUnderAttack = [];  // unnecessary
 
 	// covers king castling
 	if (!kingAttackers.length) { // if king not in check
@@ -1127,7 +1126,6 @@ function kingLit() {
 		if (!passiveSideCoversId) { litIds.push(id); }
 	});
 	console.log('litIds -->');  console.log(litIds);
-	
 }  // fills litIds with ids where king can move
 
 ////////////////////////////////////////////////////////
