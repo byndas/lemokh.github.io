@@ -331,7 +331,6 @@ function possibleMoves() {
 		case 'rook':    rookLit();              break;
 		case 'queen':   bishopLit(); rookLit(); break;
 		case 'king':    kingLit();              break;
-		
 		// default: alert('default ERROR! pieceToMove is empty');
 	}
 	// lightens & click-listens to litIds --> movePiece(e)
