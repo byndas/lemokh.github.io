@@ -1515,9 +1515,9 @@ function lit() {
 	// covers game ending in a draw 
 	if (activeSide.length === 1) {
 		pieceToMove = activeSide[0];
-		kingLit(runTimer);
+		kingLit();
 		if (!litIds.length) {
-			clearInterval();
+			clearInterval(runTimer);
 			alert("Game ends in a draw");
 			return;
 		}
