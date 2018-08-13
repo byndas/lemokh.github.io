@@ -1,4 +1,5 @@
 import wherePieceCanMove from "./wherePieceCanMove.js";
+import lit from './lit.js';
 
 var kingAttackers=[], greyLitPieces=[], kingLitIds=[], pathOfCheck=[],
 	canBlockPathOfCheck=[], canEatKingAttacker=[], castleIds=[],
@@ -67,7 +68,7 @@ function countDown() {
 		obj.minutes + ':' + obj.tenths + obj.hundredths;
 }
 
-function toggleClocks() {
+export function toggleClocks() {
 
 	clearInterval(runTimer);
 	
@@ -97,13 +98,6 @@ function resign() {
 }
 
 ////////////////////////////////////////////////////////////
-
-function draw() {
-	clearInterval(runTimer);
-	alert("Game ends in a draw");
-	return;
-}
-
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////

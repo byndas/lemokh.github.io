@@ -2,6 +2,8 @@ import possibleMoves from "./js/possibleMoves.js";
 import wherePieceCanMove from "./js/wherePieceCanMove.js";
 import inCheck from "./js/inCheck.js";
 import checkingSpace from "./js/checkingSpace.js";
+import toggleClocks from "./index.js"
+import wherePieceCanMove from "./wherePieceCanMove.js";
 
 export function lit() {
 
@@ -67,10 +69,9 @@ export function lit() {
 	testingDraw = false;
 	pieceToMove = undefined;
 	if (stuckActivePieces === activeSide.length) {
-		draw();
-		// clearInterval(runTimer);
-		// alert("Game ends in a draw");
-		// return;
+		clearInterval(runTimer);
+		alert("Game ends in a draw");
+		return; // draw()
 	}
     // ---------------------------------------------------------------
     // pushes to kingAttackers all passivePieces that check activeKing 
