@@ -1,4 +1,4 @@
-import lit from '../index.js';
+import lit from './lit.js';
 import wherePieceCanMove from './wherePieceCanMove.js';
 
 // exports to moveGrePiece.js
