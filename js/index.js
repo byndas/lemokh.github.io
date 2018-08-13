@@ -1,5 +1,4 @@
 import lit from './lit.js';
-import wherePieceCanMove from './wherePieceCanMove.js';
 
 var kingAttackers=[], greyLitPieces=[], kingLitIds=[], pathOfCheck=[],
 	canBlockPathOfCheck=[], canEatKingAttacker=[], castleIds=[],
@@ -43,60 +42,12 @@ var blueNodes = board.querySelectorAll("[data-side='blue']"),
 		hundredths: 0 
 	};
 
-function setTimer() { // unnecessary?
-	document.getElementById('start')
-			.addEventListener('click', getMinutes);
-}
-
-function startClock() { runTimer = setInterval(countDown, 1000); };
-
-function countDown() {
-
-	obj.hundredths -= 1;
-	
-	if ( obj.hundredths < 0 ) {
-		obj.tenths -= 1;
-		obj.hundredths = 9;
-	}
-	if ( obj.tenths < 0 ) {
-			obj.minutes -= 1;
-			obj.tenths = 5;
-	}
-	if ( obj.minutes < 0 ) { return resign(); }
-
-	clockToUpdate.innerHTML =  
-		obj.minutes + ':' + obj.tenths + obj.hundredths;
-}
-
-export function toggleClocks() {
-
-	clearInterval(runTimer);
-	
-	if (activeSide[0].dataset.side === 'blue') {	
-		obj = blueTime;
-		clockToUpdate = clock1;
-	}
-	else { 
-		obj = orangeTime;
-		clockToUpdate = clock2;
-	}
-	startClock();
-}
+// function setTimer() { // unnecessary?
+// 	document.getElementById('start')
+// 			.addEventListener('click', getMinutes);
+// }
 
 ////////////////////////////////////////////////////////////
-
-function resign() {
-	clearInterval(runTimer);
-	board.classList.add('noClick');
-	
-	activeSide.forEach(activePiece => {
-		activePiece.removeEventListener('click', wherePieceCanMove);
-	});
-	
-	alert(activeKing.dataset.side + " resigns");
-	console.log('END OF GAME');
-}
-
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
