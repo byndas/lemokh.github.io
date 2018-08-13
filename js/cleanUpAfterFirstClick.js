@@ -1,7 +1,11 @@
 // imports [removeLitDivHandler, movePiece, castling]
 // exports to wherePieceCanMove.js
 
-function cleanUpAfterFirstClick() {
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+
+export function cleanUpAfterFirstClick() {
 	// resets litIds on clicking multiple activeSide pieces
 	if (pieceToMove !== undefined) {
 		// un-lightens & stops click-listening to pieceToMove

@@ -1,7 +1,7 @@
-import possibleMoves from "/js/possibleMoves";
-import wherePieceCanMove from "/js/wherePieceCanMove";
-import inCheck from "/js/inCheck";
-import checkingSpace from "/js/checkingSpace";
+import possibleMoves from "/js/possibleMoves.js";
+import wherePieceCanMove from "/js/wherePieceCanMove.js";
+import inCheck from "/js/inCheck.js";
+import checkingSpace from "/js/checkingSpace.js";
 
 var kingAttackers=[], greyLitPieces=[], kingLitIds=[], pathOfCheck=[],
 	canBlockPathOfCheck=[], canEatKingAttacker=[], castleIds=[],

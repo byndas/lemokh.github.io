@@ -1,7 +1,11 @@
 // imports [pawnEvolve, enPassantReset, wherePieceCanMove]
 // exports to moveGrePiece.js
 
-function swapSide(fromDiv, toDiv) {
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+
+export function swapSide(fromDiv, toDiv) {
 	// swaps pieceToMove & goToDiv info
 	console.log('ENTERS swapSide()');
 	// handles blue pawn evolution modal window

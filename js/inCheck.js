@@ -1,5 +1,11 @@
 // import [kingLit.js, checkingSpace.js, pinnedPieceLit.js, endOfGame.js, selectGreyPiece.js]
 
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+
 export function inCheck() {
 
 	console.log('ENTERS inCheck()');

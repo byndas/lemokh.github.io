@@ -1,7 +1,12 @@
 // imports [toggleSides, eat, swapSide, selectGreyPiece]
 // exports to moveGreyPiece.js
 
-function moveGreyPiece(e) {
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+import  from '/.js';
+
+export function moveGreyPiece(e) {
 	
 	console.log('ENTERS moveGreyPiece()');
 	

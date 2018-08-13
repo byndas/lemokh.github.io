@@ -1,4 +1,9 @@
-// imports all files below
+import pawnAttacks from '/pawnAttacks.js';
+import knightAttacks from '/knightAttacks.js';
+import bishopAttacks from '/bishopAttacks.js';
+import rookAttacks from '/rookAttacks.js';
+import queenAttacks from '/queenAttacks.js';
+import kingAttacks from '/kingAttacks.js';
 
 export function checkingSpace(somePiece, someId) {
 	checkSpaceId = someId;

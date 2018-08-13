@@ -1,4 +1,8 @@
-function kingLit() {
+// imports checkingSpace
+
+import  from '/.js';
+
+export function kingLit() {
 	// highlights all possible moves for activeKing
 	console.log('ENTERS kingLit()');
 

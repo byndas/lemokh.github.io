@@ -1,7 +1,7 @@
 // nothing to import
 // exports to [cleanUpAfterFirstClick.js, castling.js]
 
-function removeLitDivHandler(funcName) {
+export function removeLitDivHandler(funcName) {
 
 	litIds.forEach( litDiv => {
 		litPiece = document.getElementById( litDiv );

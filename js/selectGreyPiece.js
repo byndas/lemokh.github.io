@@ -1,6 +1,8 @@
 // imports moveGreyPiece.js --> exports to inCheck.js
 
-function selectGreyPiece(e) {
+import  from '/.js';
+
+export function selectGreyPiece(e) {
 
 	if (greyPieceToMove !== undefined) {
 		greyPieceToMove.classList.remove('mainLit');

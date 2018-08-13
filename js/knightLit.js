@@ -1,5 +1,8 @@
 // imports onBoardNonActiveIds --> exports to possibleMoves
-function knightLit() {
+
+import  from '/.js';
+
+export function knightLit() {
 
     function knightSpaces(knight) { 
         return [
