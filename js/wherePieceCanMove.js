@@ -1,4 +1,8 @@
-// imports [cleanUpAfterFirstClick, movePiece, pinnedPieceLit, possibleMoves, addLitDivHandler]
+import cleanUpAfterFirstClick from '/cleanUpAfterFirstClick.js';
+import movePiece from '/movePiece.js';
+import pinnedPieceLit from '/pinnedPieceLit.js';
+import possibleMoves from '/possibleMoves.js';
+import addLitDivHandler from '/addLitDivHandler.js';
 
 export function wherePieceCanMove(e) {
 	// if not first click of this turn

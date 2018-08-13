@@ -1,4 +1,4 @@
-// nothing to import --> exports to moveGreyPiece.js
+// exports to moveGreyPiece.js
 
 export function eat(piece) {
 	console.log('ENTERS eat('+piece+')');

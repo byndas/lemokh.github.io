@@ -1,6 +1,6 @@
-// imports onBoard.js --> exports to checkingSpace.js
+// exports to checkingSpace.js
 
-import  from '/.js';
+import onBoard from '/onBoard.js';
 
 export function pawnAttacks(pawn) {
 

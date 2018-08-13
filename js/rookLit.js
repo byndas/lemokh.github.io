@@ -1,6 +1,6 @@
-// imports onBoard --> exports to possibleMoves
+// exports to possibleMoves
 
-import  from '/.js';
+import onBoard from '/onBoard.js';
 
 export function rookLit() {
 	// in case of queen

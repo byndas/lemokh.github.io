@@ -1,7 +1,7 @@
-// imports [bishopAttacks.js, rookAttacks.js] --> exports to checkingSpace.js
+// exports to checkingSpace.js
 
-import  from '/.js';
-import  from '/.js';
+import bishopAttacks from '/bishopAttacks.js';
+import rookAttacks from '/rookAttacks.js';
 
 export function queenAttacks(queen) {
     

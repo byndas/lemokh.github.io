@@ -1,6 +1,6 @@
-// imports onBoardNonActiveIds --> exports to possibleMoves
+// exports to possibleMoves
 
-import  from '/.js';
+import onBoardNonActiveIds from '/onBoardNonActiveIds.js';
 
 export function knightLit() {
 

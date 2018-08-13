@@ -1,9 +1,8 @@
-// imports [removeLitDivHandler, movePiece, castling]
 // exports to wherePieceCanMove.js
 
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
+import removeLitDivHandler from '/removeLitDivHandler.js';
+import movePiece from '/movePiece.js';
+import castling from '/castling.js';
 
 export function cleanUpAfterFirstClick() {
 	// resets litIds on clicking multiple activeSide pieces

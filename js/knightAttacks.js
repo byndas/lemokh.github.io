@@ -1,7 +1,7 @@
-// imports [knightSpaces.js, onBoard.js] --> exports to checkingSpace.js
+// exports to checkingSpace.js
 
-import  from '/.js';
-import  from '/.js';
+import knightSpaces from '/knightSpaces.js';
+import onBoard from '/onBoard.js';
 
 export function knightAttacks(knight) {
 

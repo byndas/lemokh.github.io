@@ -1,10 +1,9 @@
-// imports [toggleSides, eat, swapSide, selectGreyPiece]
-// exports to moveGreyPiece.js
+// exports to selectGreyPiece.js
 
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
+import toggleSides from '/toggleSides.js';
+import eat from '/eat.js';
+import swapSide from '/swapSide.js';
+import selectGreyPiece from '/selectGreyPiece.js';
 
 export function moveGreyPiece(e) {
 	

@@ -1,10 +1,8 @@
-// import [kingLit.js, checkingSpace.js, pinnedPieceLit.js, endOfGame.js, selectGreyPiece.js]
-
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
+import kingLit from '/kingLit.js';
+import checkingSpace from '/checkingSpace.js';
+import pinnedPieceLit from '/pinnedPieceLit.js';
+import endOfGame from '/endOfGame.js';
+import selectGreyPiece from '/selectGreyPiece.js';
 
 export function inCheck() {
 

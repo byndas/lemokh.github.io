@@ -1,7 +1,6 @@
-// imports wherePieceCanMove.js
 // exports to inCheck.js
 
-import  from '/.js';
+import wherePieceCanMove from 'wherePieceCanMove/.js';
 
 export function endOfGame() {
 	

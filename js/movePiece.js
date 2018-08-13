@@ -1,11 +1,10 @@
-// imports [removeLitDivHandler, toggleSides, eat, swapSide, wherePieceCanMove]
 // exports to wherePieceCanMove.js
 
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
-import  from '/.js';
+import removeLitDivHandler from '/removeLitDivHandler.js';
+import toggleSides from '/toggleSides.js';
+import eat from '/eat.js';
+import swapSide from '/swapSide.js';
+import wherePieceCanMove from '/wherePieceCanMove.js';
 
 export function movePiece(e) {
 

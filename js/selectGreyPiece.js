@@ -1,6 +1,6 @@
-// imports moveGreyPiece.js --> exports to inCheck.js
+// exports to inCheck.js
 
-import  from '/.js';
+import moveGreyPiece from '/moveGreyPiece.js';
 
 export function selectGreyPiece(e) {
 

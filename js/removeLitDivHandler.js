@@ -1,4 +1,3 @@
-// nothing to import
 // exports to [cleanUpAfterFirstClick.js, castling.js]
 
 export function removeLitDivHandler(funcName) {
