@@ -1,5 +1,4 @@
 // exports to moveGreyPiece.js
-
 export function eat(piece) {
 	console.log('ENTERS eat('+piece+')');
 	// eat(goToDiv); --> normal pawn attack

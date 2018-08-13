@@ -1,4 +1,4 @@
-// nothing to import --> exports to wherePieceCanMove.js
+// exports to wherePieceCanMove.js
 export function addLitDivHandler(funcName) {
 	
 	litIds.forEach( litDiv => {

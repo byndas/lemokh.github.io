@@ -1,7 +1,6 @@
+import moveGreyPiece from './moveGreyPiece.js';
+
 // exports to inCheck.js
-
-import moveGreyPiece from '/moveGreyPiece.js';
-
 export function selectGreyPiece(e) {
 
 	if (greyPieceToMove !== undefined) {

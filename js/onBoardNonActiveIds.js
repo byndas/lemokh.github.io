@@ -1,4 +1,4 @@
-import onBoard from '/onBoard.js';
+import onBoard from './onBoard.js';
 
 export function onBoardNonActiveIds(id) {
 	if (onBoard(id)) {

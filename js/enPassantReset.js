@@ -1,5 +1,4 @@
-// nothing to import --> exports to swapSide.js
-
+// exports to swapSide.js
 export function enPassantReset() {
 	console.log('ENTERS enPassantReset()');
 	

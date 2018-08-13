@@ -1,7 +1,4 @@
 // exports to checkingSpace.js
-
-import onBoard from '/onBoard.js';
-
 export function pawnAttacks(pawn) {
 
 	if (pawnBlocksKingAttacker) { // set by inCheck()

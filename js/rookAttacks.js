@@ -1,7 +1,6 @@
+import onBoard from './onBoard.js';
+
 // exports to checkingSpace.js
-
-import onBoard from '/onBoard.js';
-
 export function rookAttacks(rook) {
 	// checks for clear path between rook.id & checkSpaceId
 	rookMoves = []; // collects spaces rook attacks enroute to checkSpaceId

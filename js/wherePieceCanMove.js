@@ -1,9 +1,10 @@
-import cleanUpAfterFirstClick from '/cleanUpAfterFirstClick.js';
-import movePiece from '/movePiece.js';
-import pinnedPieceLit from '/pinnedPieceLit.js';
-import possibleMoves from '/possibleMoves.js';
-import addLitDivHandler from '/addLitDivHandler.js';
+import cleanUpAfterFirstClick from './cleanUpAfterFirstClick.js';
+import movePiece from './movePiece.js';
+import pinnedPieceLit from './pinnedPieceLit.js';
+import possibleMoves from './possibleMoves.js';
+import addLitDivHandler from './addLitDivHandler.js';
 
+// exports to index.js
 export function wherePieceCanMove(e) {
 	// if not first click of this turn
 	if (newPieceClicked !== undefined) {

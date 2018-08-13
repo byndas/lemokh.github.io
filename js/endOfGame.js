@@ -1,7 +1,6 @@
+import wherePieceCanMove from './wherePieceCanMove/.js';
+
 // exports to inCheck.js
-
-import wherePieceCanMove from 'wherePieceCanMove/.js';
-
 export function endOfGame() {
 	
 	clearInterval(runTimer);

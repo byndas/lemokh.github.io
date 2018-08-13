@@ -1,9 +1,10 @@
-import kingLit from '/kingLit.js';
-import checkingSpace from '/checkingSpace.js';
-import pinnedPieceLit from '/pinnedPieceLit.js';
-import endOfGame from '/endOfGame.js';
-import selectGreyPiece from '/selectGreyPiece.js';
+import kingLit from './kingLit.js';
+import checkingSpace from './checkingSpace.js';
+import pinnedPieceLit from './pinnedPieceLit.js';
+import endOfGame from './endOfGame.js';
+import selectGreyPiece from './selectGreyPiece.js';
 
+// exports to index.js
 export function inCheck() {
 
 	console.log('ENTERS inCheck()');

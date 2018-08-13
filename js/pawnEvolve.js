@@ -1,7 +1,6 @@
+import toggleSides from './toggleSides.js';
+
 // exports to swapSide.js
-
-import toggleSides from '/toggleSides.js';
-
 export function pawnEvolve(e) {
 	// uses pieceToMove for pawn & e.target for new piece
 	console.log('ENTERS pawnEvolve(e)');

@@ -1,5 +1,5 @@
-import knightSpaces from '/knightSpaces.js';
-import onBoardNonActiveIds from '/onBoardNonActiveIds.js';
+import knightSpaces from './knightSpaces.js';
+import onBoardNonActiveIds from './onBoardNonActiveIds.js';
 
 // exports to checkingSpace.js
 export function knightAttacks(knight) {

@@ -1,6 +1,6 @@
-// imports onBoard.js --> exports to checkingSpace.js
-import onBoard from '/onBoard.js';
+import onBoard from './onBoard.js';
 
+// exports to checkingSpace.js
 export function bishopAttacks(bishop) {
 	// checks for clear path between bishop.id & checkSpaceId
 	bishopMoves = []; // collects spaces bishop attacks enroute to checkSpaceId

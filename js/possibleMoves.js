@@ -1,8 +1,8 @@
-import pawnLit from 'pawnLit.js';
-import knightLit from 'knightLit.js';
-import bishopLit from 'bishopLit.js';
-import rookLit from 'rookLit.js';
-import kingLit from 'kingLit.js';
+import pawnLit from './pawnLit.js';
+import knightLit from './knightLit.js';
+import bishopLit from './bishopLit.js';
+import rookLit from './rookLit.js';
+import kingLit from './kingLit.js';
 
 export function possibleMoves() {
 	console.log('ENTERS possibleMoves()');

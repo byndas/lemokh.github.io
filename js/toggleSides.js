@@ -1,9 +1,7 @@
-// imports [lit(), wherePieceCanMove]
+import lit from '../index.js';
+import wherePieceCanMove from './wherePieceCanMove.js';
+
 // exports to moveGrePiece.js
-
-import lit from './index.js';
-import wherePieceCanMove from '/wherePieceCanMove.js';
-
 export function toggleSides() {
 	// removes click-listeners from activePieces
 	activeSide.forEach(activePiece => {

@@ -1,7 +1,6 @@
+import checkingSpace from './checkingSpace.js';
+
 // exports to inCheck.js
-
-import checkingSpace from '/checkingSpace.js';
-
 export function pinnedPieceLit() {
 	console.log('ENTERS pinnedPieceLit()');
 	// ---------------------------------------------------

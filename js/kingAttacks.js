@@ -1,5 +1,4 @@
-// nothing to import --> exports to checkingSpace.js
-
+// exports to checkingSpace.js
 export function kingAttacks(king) {
 	
 	switch (+checkSpaceId[0]) { // if checkSpaceId's column equals...
