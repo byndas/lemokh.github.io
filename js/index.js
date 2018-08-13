@@ -1,5 +1,5 @@
-import wherePieceCanMove from "./wherePieceCanMove.js";
 import lit from './lit.js';
+import wherePieceCanMove from './wherePieceCanMove.js';
 
 var kingAttackers=[], greyLitPieces=[], kingLitIds=[], pathOfCheck=[],
 	canBlockPathOfCheck=[], canEatKingAttacker=[], castleIds=[],
