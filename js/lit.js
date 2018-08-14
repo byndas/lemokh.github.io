@@ -3,7 +3,6 @@ import wherePieceCanMove from "./js/wherePieceCanMove.js";
 import inCheck from "./js/inCheck.js";
 import checkingSpace from "./js/checkingSpace.js";
 import toggleClocks from "./index.js"
-import wherePieceCanMove from "./wherePieceCanMove.js";
 
 export function lit() {
 
