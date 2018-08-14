@@ -1,8 +1,8 @@
-import possibleMoves from "./js/possibleMoves.js";
-import wherePieceCanMove from "./js/wherePieceCanMove.js";
-import inCheck from "./js/inCheck.js";
 import checkingSpace from "./js/checkingSpace.js";
-import toggleClocks from "./index.js"
+import inCheck from "./js/inCheck.js";
+import possibleMoves from "./js/possibleMoves.js";
+import toggleClocks from "./toggleClocks.js"
+import wherePieceCanMove from "./js/wherePieceCanMove.js";
 
 export function lit() {
 
