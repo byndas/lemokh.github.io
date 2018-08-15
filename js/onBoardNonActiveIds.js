@@ -1,6 +1,6 @@
 import onBoard from './onBoard.js';
 
-export function onBoardNonActiveIds(id) {
+export default function onBoardNonActiveIds(id) {
 	if (onBoard(id)) {
 		if (findingKingAttackers) {
 			if ( document.getElementById( id ).dataset.side 
