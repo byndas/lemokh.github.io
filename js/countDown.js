@@ -1,6 +1,6 @@
 import resign from './resign.js';
 
-export function countDown() {
+export default function countDown() {
 
 	obj.hundredths -= 1;
 	

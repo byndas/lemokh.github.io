@@ -4,7 +4,7 @@ import swapSide from './swapSide.js';
 import selectGreyPiece from './selectGreyPiece.js';
 
 // exports to selectGreyPiece.js
-export function moveGreyPiece(e) {
+export default function moveGreyPiece(e) {
 	
 	console.log('ENTERS moveGreyPiece()');
 	

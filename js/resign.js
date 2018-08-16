@@ -1,6 +1,6 @@
 import wherePieceCanMove from './wherePieceCanMove.js';
 
-export function resign() {
+export default function resign() {
 	clearInterval(runTimer);
 	board.classList.add('noClick');
 	

@@ -5,7 +5,7 @@ import endOfGame from './endOfGame.js';
 import selectGreyPiece from './selectGreyPiece.js';
 
 // exports to index.js
-export function inCheck() {
+export default function inCheck() {
 
 	console.log('ENTERS inCheck()');
 	console.log('behindKingId -->');  console.log(behindKingId);

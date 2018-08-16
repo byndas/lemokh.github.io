@@ -3,7 +3,7 @@ import enPassantReset from './enPassantReset.js';
 import wherePieceCanMove from './wherePieceCanMove.js';
 
 // exports to moveGrePiece.js
-export function swapSide(fromDiv, toDiv) {
+export default function swapSide(fromDiv, toDiv) {
 	// swaps pieceToMove & goToDiv info
 	console.log('ENTERS swapSide()');
 	// handles blue pawn evolution modal window

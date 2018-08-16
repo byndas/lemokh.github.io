@@ -1,7 +1,7 @@
 import onBoard from './onBoard.js';
 
 // exports to possibleMoves
-export function bishopLit() {
+export default function bishopLit() {
 
     function quadrant(x, y) { // x & y are a number
         let bishopPath = document.getElementById(x+''+y);

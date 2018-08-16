@@ -1,7 +1,7 @@
 import wherePieceCanMove from './wherePieceCanMove.js';
 
 // exports to inCheck.js
-export function endOfGame() {
+export default function endOfGame() {
 	
 	clearInterval(runTimer);
 	activeKing.classList.add('checkMate');

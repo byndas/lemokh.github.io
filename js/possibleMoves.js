@@ -4,7 +4,7 @@ import bishopLit from './bishopLit.js';
 import rookLit from './rookLit.js';
 import kingLit from './kingLit.js';
 
-export function possibleMoves() {
+export default function possibleMoves() {
 	console.log('ENTERS possibleMoves()');
 	// populates litIds with piece's possible moves
 	switch (pieceToMove.dataset.name) {

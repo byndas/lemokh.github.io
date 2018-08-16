@@ -1,6 +1,6 @@
 import countDown from './countDown.js';
 
-export function toggleClocks() {
+export default function toggleClocks() {
 
 	function startClock() { runTimer = setInterval(countDown, 1000); };
 

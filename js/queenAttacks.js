@@ -2,7 +2,7 @@ import bishopAttacks from './bishopAttacks.js';
 import rookAttacks from './rookAttacks.js';
 
 // exports to checkingSpace.js
-export function queenAttacks(queen) {
+export default function queenAttacks(queen) {
     
 	if (bishopAttacks(queen, checkSpaceId)) { return true; }
 	if (rookAttacks(queen, checkSpaceId)) { return true; }

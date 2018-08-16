@@ -1,5 +1,5 @@
 // exports to [cleanUpAfterFirstClick.js, castling.js]
-export function removeLitDivHandler(funcName) {
+export default function removeLitDivHandler(funcName) {
 
 	litIds.forEach( litDiv => {
 		litPiece = document.getElementById( litDiv );

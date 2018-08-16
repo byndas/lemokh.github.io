@@ -5,7 +5,7 @@ import swapSide from './swapSide.js';
 import wherePieceCanMove from './wherePieceCanMove.js';
 
 // exports to wherePieceCanMove.js
-export function movePiece(e) {
+export default function movePiece(e) {
 
 	console.log('ENTERS movePiece(e)');
 	console.log('removes click-listener from litIds & pieceToMove');

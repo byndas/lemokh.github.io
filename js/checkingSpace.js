@@ -5,7 +5,7 @@ import rookAttacks from './rookAttacks.js';
 import queenAttacks from './queenAttacks.js';
 import kingAttacks from './kingAttacks.js';
 
-export function checkingSpace(somePiece, someId) {
+export default function checkingSpace(somePiece, someId) {
 	checkSpaceId = someId;
 	// sees if somePiece can check someId
 	switch (somePiece.dataset.name) {

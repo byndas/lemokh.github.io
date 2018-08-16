@@ -1,5 +1,5 @@
 // exports to swapSide.js
-export function enPassantReset() {
+export default function enPassantReset() {
 	console.log('ENTERS enPassantReset()');
 	
 	// resets enPassanting

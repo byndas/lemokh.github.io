@@ -4,7 +4,7 @@ import swapSide from './swapSide.js';
 import movePiece from './movePiece.js';
 
 // exports to [wherePieceCanMove.js, cleanUpAfterFirstClick.js]
-export function castling(e) {
+export default function castling(e) {
 	
 	console.log('enters castling(e)');
 	// -------------------------------
