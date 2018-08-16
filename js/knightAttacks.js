@@ -2,7 +2,7 @@ import knightSpaces from './knightSpaces.js';
 import onBoardNonActiveIds from './onBoardNonActiveIds.js';
 
 // exports to checkingSpace.js
-export function knightAttacks(knight) {
+export default function knightAttacks(knight) {
 
 	function attacks(id) {
 		if (id === checkSpaceId) { return id; }
