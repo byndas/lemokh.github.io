@@ -6,27 +6,27 @@ import wherePieceCanMove from "./wherePieceCanMove.js";
 
 export default function lit() {
 
-	stuckActivePieces = 0;
-	findingKingAttackers = true;
-	
-	pawnBlocksKingAttacker = false;
-	noPawnEvolution = false;
-	kingInCheck = false;
-	kingStuck = false;
+	var stuckActivePieces = 0,
+		findingKingAttackers = true,
+		
+		pawnBlocksKingAttacker = false,
+		noPawnEvolution = false,
+		kingInCheck = false,
+		kingStuck = false,
 
-	greyPieceToMove = undefined;
-	newPieceClicked = undefined;
-	behindKingId = undefined;
-	
-	canBlockPathOfCheck = [];
-	canEatKingAttacker = [];
-	kingAttackers = [];
-	pinnedLitIds = [];
-	pinnedPieces = [];
-	pathOfCheck = [];
-	kingIds = [];
-	litIds = [];
-	pins = [];
+		greyPieceToMove = undefined,
+		newPieceClicked = undefined,
+		behindKingId = undefined,
+		
+		canBlockPathOfCheck = [],
+		canEatKingAttacker = [],
+		kingAttackers = [],
+		pinnedLitIds = [],
+		pinnedPieces = [],
+		pathOfCheck = [],
+		kingIds = [],
+		litIds = [],
+		pins = [];
 
     // ********** META-LOGIC **********
 
