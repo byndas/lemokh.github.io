@@ -1,5 +1,5 @@
 // exports to checkingSpace.js
-export function pawnAttacks(pawn) {
+export default function pawnAttacks(pawn) {
 
 	if (pawnBlocksKingAttacker) { // set by inCheck()
 		// sees if pawn can block checkSpaceId
