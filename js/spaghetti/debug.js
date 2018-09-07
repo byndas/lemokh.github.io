@@ -77,9 +77,7 @@ function toggleClocks() {
 }
 
 ///////////////////////////
-///////////////////////////
-// FIND NEW CHECKPATH WITHOUT USING PATHOFCHECK
-// RUN A SPECIAL FUNCTION IF YOU MUST!
+
 function inCheck() {
 	console.log('ENTERS inCheck()');
 	console.log('behindKingId -->');  console.log(behindKingId);
@@ -88,6 +86,8 @@ function inCheck() {
 	kingInCheck = true;
 	pieceToMove = activeKing;
 	
+	console.log('litIds before kingLit() -->');  console.log(litIds);
+
 	kingLit(); // fills litIds with ids where activeKing can move
 
 	console.log('litIds after kingLit() -->');  console.log(litIds);
@@ -126,7 +126,7 @@ function inCheck() {
 	} // else { kingStuck = true; } unnecessary
 
 	if (kingAttackers.length === 1) { // if only one kingAttacker
-		/////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////
 		console.log('ONLY ONE KING ATTACKER');
 		// populates checkPath with kingAttacker's id path to king
 		switch(kingAttackers[0].dataset.name) {
@@ -214,10 +214,18 @@ function inCheck() {
 	else { // since multiple kingAttackers, only moving activeKing prevents checkmate
 		console.log('> 1 kingAttackers');
 
-		if (greyLitPieces.length) { addLitDivHandler(selectGreyPiece); }
+		if (greyLitPieces.length) {
+			// lightens & click-listens to each greyLitPiece
+			greyLitPieces.forEach(greyLitPiece => {
+				greyLitPiece.classList.add('preventMateLit');
+				greyLitPiece.addEventListener('click', selectGreyPiece);
+			});
+		}
 		else { return endOfGame(); }
 	}
 }
+
+///////////////////////////
 
 function selectGreyPiece(e) {
 
@@ -695,11 +703,53 @@ function pinnedPieceLit() {
 	// --------------------------------------
 	// if pieceToMove can eat its pinnerPiece
 	if (checkingSpace(pieceToMove, pinnerPiece.id)) {
+		console.log('can eat its pinnerPiece');
 		pinnedLitIds.push(pinnerPiece.id);
+	}
+	else if (pieceToMove.dataset.name === 'pawn') {
+		console.log('pinned pawn is pieceToMove');
+		// if pinnerPiece is rook or queen && shares same column as pawn
+		if (['rook', 'queen'].includes(pinnerPiece.dataset.name)) {
+			if (pinnerPiece.id[0] === pieceToMove.id[0]) {
+				if (pieceToMove.dataset.side === 'blue') {
+					// if pinnerPiece is ABOVE blue pawn
+					if (pinnerPiece.id[1] < pieceToMove.id[1]) {
+						// allows blue pawn to only move regularly one or two without eating...
+						if (document.getElementById(pieceToMove.id[0] + (pieceToMove.id[1] - 1)).dataset.name === 'empty') {
+							pinnedLitIds.push(pieceToMove.id[0] + (pieceToMove.id[1] - 1));
+							if (pieceToMove.id[1] === '6') {
+								if (document.getElementById(pieceToMove.id[0] + (pieceToMove.id[1] - 2)).dataset.name === 'empty') {
+									pinnedLitIds.push(pieceToMove.id[0] + (pieceToMove.id[1] - 2));
+								}
+							}
+						}
+					}
+				} 
+				else { // since orange pawn to move
+					// if pinnerPiece is BENEATH orange pawn
+					if (pinnerPiece.id[1] > pieceToMove.id[1]) {
+						// allows orange pawn to only move regularly one or two without eating...
+						if (document.getElementById(pieceToMove.id[0] + (+pieceToMove.id[1] + 1)).dataset.name === 'empty') {
+							pinnedLitIds.push(pieceToMove.id[0] + (+pieceToMove.id[1] + 1));
+							if (pieceToMove.id[1] === '1') {
+								if (document.getElementById(pieceToMove.id[0] + (+pieceToMove.id[1] + 2)).dataset.name === 'empty') {
+									pinnedLitIds.push(pieceToMove.id[0] + (+pieceToMove.id[1] + 2));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else {
+		console.log('return');
+		return;
 	}
 	// -------------------------------------
 	// since either a bishop, rook, or queen
-	if (pieceToMove.dataset.name !== 'pawn') {	
+	if (pieceToMove.dataset.name !== 'pawn') {
+
 		// includes ids from pieceToMove to its pinning piece
 		pinnedLitIds.push(...pathOfCheck);
 		// ---------------------------------------------
@@ -707,6 +757,21 @@ function pinnedPieceLit() {
 		checkingSpace(pieceToMove, activeKing.id);
 		pinnedLitIds.push(...pathOfCheck);
 		console.log('pinnedLitIds -->');  console.log(pinnedLitIds);
+
+		/*
+		switch(pieceToMove.dataset.name) {
+			case pinnerPiece.dataset.name:
+			case 'queen':
+
+			// includes ids from pieceToMove to its pinning piece
+			pinnedLitIds.push(...pathOfCheck);
+			// ---------------------------------------------
+			// includes ids from pieceToMove to its own king
+			checkingSpace(pieceToMove, activeKing.id);
+			pinnedLitIds.push(...pathOfCheck);
+			console.log('pinnedLitIds -->');  console.log(pinnedLitIds);
+		}
+		*/
 	}
 	// -----------------------
 	if (pinnedLitIds.length) {
@@ -1088,7 +1153,7 @@ function kingLit() {
 		// for each oAOHKS & each passivePiece
 		for (let i = 0; i < passiveSide.length; i++) {
 			if (passiveSide[i].id !== id) {
-				// if a passivePiece can check that oAOHKS...(kingSpace id devoid of activePiece)
+				// if a passivePiece can check that oAOHKS
 				if (checkingSpace(passiveSide[i], id)) {
 					console.log(passiveSide[i].dataset.side + ' ' + passiveSide[i].dataset.name + ' can attack ' + id);
 
