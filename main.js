@@ -103,9 +103,9 @@ function toggleClocks() {
 			setBoard.forEach(arr => document.getElementById(arr[0]).classList.toggle('rotateBoard'));
 			board.classList.toggle('rotateBoard');
 			board.classList.toggle('noClick');
-		}, 750);
+		}, 800);
 
-		setTimeout( () => board.classList.toggle('fade'), 1600);
+		setTimeout( () => board.classList.toggle('fade'), 1500);
 	}
 
 	startClock();
