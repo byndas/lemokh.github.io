@@ -9,7 +9,7 @@ var kingAttackers = [],
 	orangeTakenBoxIdCounter = -16,
 	blueTakenBoxIdCounter = -1,
 	nails, storedGreyPieceToMove,
-	enPassanting = false,
+	enPassanting = false, drawForced = false,
 	pins, kingInCheck, stuckActivePieces, litIds, storedLitIds,
 	checkSpaceId, pinnedLitIds, behindKingId, pawnBlocksKingAttacker,
 	kingStuck, newPieceClicked, pinnerPiece, greyPieceToMove, noCastle,
@@ -20,7 +20,6 @@ var kingAttackers = [],
 	moves, bishopMoves, bishopX, bishopY, openAndOpponentHeldKingSpaces,
 	rookMoves, kingSpaces, isCastle, enPassantMove, currentBoard, pieceIds,
 	firstReview, gameOver;
-
 
 var board = document.getElementById('board');
 
@@ -94,6 +93,7 @@ function toggleClocks() {
 		obj = orangeTime;
 		clockToUpdate = clock2;
 	}
+	/*
 	// transitions player views
 	if (moveHistory.length) {
 		board.classList.toggle('noClick');
@@ -107,8 +107,24 @@ function toggleClocks() {
 
 		setTimeout( () => board.classList.toggle('fade'), 1500);
 	}
-
+	*/
 	startClock();
+}
+
+function flipBoard() {
+	// transitions player views
+	if (moveHistory.length) {
+		board.classList.toggle('noClick');
+		board.classList.toggle('fade');
+		
+		setTimeout( () => {
+			setBoard.forEach(arr => document.getElementById(arr[0]).classList.toggle('rotateBoard'));
+			board.classList.toggle('rotateBoard');
+			board.classList.toggle('noClick');
+		}, 800);
+
+		setTimeout( () => board.classList.toggle('fade'), 1500);
+	}
 }
 
 ///////////////////////////
@@ -862,6 +878,28 @@ function resign() {
 	console.log('END OF GAME');
 }
 
+function forceDraw() { // discerns if a draw is forced
+	
+	let thisMove = moveHistory[moveHistory.length - 1],
+		threeMovesAgo = moveHistory[moveHistory.length - 3],
+		fiveMovesAgo = moveHistory[moveHistory.length - 5],
+		sevenMovesAgo = moveHistory[moveHistory.length - 7],
+		nineMovesAgo = moveHistory[moveHistory.length - 9];
+		
+	if (thisMove.from.every((value, index) => value === fiveMovesAgo.from[index])) {
+		if (thisMove.image.every((value, index) => value === fiveMovesAgo.image[index])) {
+			if (thisMove.from.every((value, index) => value === nineMovesAgo.from[index])) {
+				if (thisMove.image.every((value, index) => value === nineMovesAgo.image[index])) {
+					if (threeMovesAgo.from.every((value, index) => value === sevenMovesAgo.from[index])) {
+						if (threeMovesAgo.image.every((value, index) => value === sevenMovesAgo.image[index])) {
+							drawForced = true;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 ///////////////////////////
 
 function onBoard(id) {
@@ -1607,6 +1645,8 @@ function exitReviewClickHandler() { // resumes game flow
 
 	if (gameOver) { return activeKing.classList.add('checkMate'); }
 
+	if (drawForced) { return pieceToMove.classList.remove('mainLit'); }
+
 	if (greyLitPieces.length) {
 		greyLitPieces.forEach(greyPiece => {
 			greyPiece.classList.add('preventMateLit');
@@ -1730,6 +1770,15 @@ function lit() {
 
 	board.removeEventListener('mousedown', exitReviewMode);
 
+	if (moveHistory.length > 8) {
+		forceDraw();
+		if (drawForced) {
+			setTimeout(() => alert("Game ends in a draw"), 500);
+			clearInterval(runTimer);
+			return;
+		}
+	}
+
 	stuckActivePieces = 0;
 	index = moveHistory.length;
 	findingKingAttackers = true;
@@ -1834,8 +1883,8 @@ function lit() {
 	// -------------------------------------
 	else { // since not in check
 		if (stuckActivePieces === activeSide.length) {
+			setTimeout(() => alert("Game ends in a draw"), 500);
 			clearInterval(runTimer);
-			alert("Game ends in a draw");
 			return;
 		}
 		activeSide.forEach(activePiece => {
