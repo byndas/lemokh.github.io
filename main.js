@@ -798,7 +798,7 @@ function endOfGame() {
 
 	document.getElementById('resign').classList.add('noClick');
 
-	message = activeKing.dataset.side + ' king check mated!';
+	message = activeKing.dataset.side + ' king check mated';
 	gameOverModal();
 }
 
@@ -1670,6 +1670,17 @@ function showNextMove() {
 function lit() {
 
 	board.removeEventListener('mousedown', exitReviewMode);
+
+	// covers a draw if only kings remain in play
+	if (activeSide.length === 1) {
+		if (passiveSide.length === 1) {
+			message = "only kings remain: game ends in a draw";
+			setTimeout(() => gameOverModal(), 500);
+			clearInterval(runTimer);
+			document.getElementById('resign').classList.add('noClick');
+			return;
+		}
+	}
 
 	if (moveHistory.length > 8) { // covers a forced draw
 		forceDraw();
