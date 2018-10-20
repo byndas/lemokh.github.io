@@ -14,7 +14,9 @@
     <div id='modal'>
       <div class='modalContent'>
         <h1>SET TIMER</h1>
-        <input type='number' value='10' min='1' max='1000' id='timeSet' autofocus />
+        <input type='number' value='10' min='1' max='1000' id='timeSet' autofocus
+          onkeydown='javascript: return event.keyCode !== 69'
+        />        
         <button id='start'>START</button>
       </div>
     </div>
