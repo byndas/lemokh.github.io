@@ -9,7 +9,7 @@
     <title>Chess</title>
   </head>
 
-  <body>
+  <body class='noselect'>
     
     <div id='modal'>
       <div class='modalContent'>
@@ -24,7 +24,9 @@
       <player1>
         <options>
           <button id='resign' class='btn' onclick='resign()'>RESIGN</button>
-          <button class='btn' onclick='flipBoard()'>()</button>
+          <button class='btn' onclick='flipBoard()'>
+            <img id='rotation' src='./images/rotateBoard.png' />
+          </button>
         </options>
         <div id='blueTakenBox'>
           <div class='takenBox'>

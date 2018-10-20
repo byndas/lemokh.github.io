@@ -127,7 +127,6 @@ board {
 img {
   height: 5rem;
   width: 5rem;
-  /* margin: auto; */
 }
 
 .black {
@@ -285,3 +284,24 @@ showMoves, options {
   display: flex;
   justify-content: space-evenly;
 }
+
+#rotation {
+  height: 1.5rem;
+  width: 1.5rem;
+  /* margin-top: 4px; */
+}
+
+.noselect { 
+  -webkit-touch-callout: none; 
+  /* iOS Safari */ 
+  -webkit-user-select: none; 
+  /* Chrome/Safari/Opera */ 
+  -khtml-user-select: none; 
+  /* Konqueror */ 
+  -moz-user-select: none; 
+  /* Firefox */ 
+  -ms-user-select: none; 
+  /* Internet Explorer/Edge */ 
+  user-select: none; 
+  /* Non-prefixed version, currently not supported by any browser */ 
+  }
