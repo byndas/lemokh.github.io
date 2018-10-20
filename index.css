@@ -291,7 +291,7 @@ showMoves, options {
   /* margin-top: 4px; */
 }
 
-.noselect { 
+.noSelect { 
   -webkit-touch-callout: none; 
   /* iOS Safari */ 
   -webkit-user-select: none; 
