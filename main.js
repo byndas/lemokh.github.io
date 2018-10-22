@@ -807,8 +807,44 @@ function resign() {
 
 	clearInterval(runTimer);
 
-	activeSide.forEach(activePiece => {
+	if (litIds.length) {
+		litIds.forEach( id => {
+			document.getElementById(id).removeEventListener('click', movePiece);
+			document.getElementById(id).classList.remove('lit');
+		});
+	}
+	if (kingLitIds.length) {
+		kingLitIds.forEach( id => {
+			document.getElementById(id).removeEventListener('click', movePiece);
+			document.getElementById(id).removeEventListener('click', moveGreyPiece);
+			document.getElementById(id).classList.remove('lit');
+		})
+	}
+	if (pieceToMove) {
+		if (pieceToMove.classList.contains('mainLit')) {
+			pieceToMove.classList.remove('mainLit');
+			pieceToMove.removeEventListener('click', movePiece);
+		}
+	}
+	if (greyPieceToMove) {
+		if (greyPieceToMove.classList.contains('mainLit')) {
+			greyPieceToMove.classList.remove('mainLit');
+			greyPieceToMove.removeEventListener('click', selectGreyPiece);
+		}
+	}
+	if (greyLitPieces.length) {
+		greyLitPieces.forEach( piece => {
+			piece.classList.remove('preventMateLit');
+			piece.removeEventListener('click', selectGreyPiece);
+		});
+	}
+
+	activeSide.forEach( activePiece => {
 		activePiece.removeEventListener('click', wherePieceCanMove);
+	});
+
+	passiveSide.forEach( passivePiece => {
+		passivePiece.removeEventListener('click', wherePieceCanMove);
 	});
 
 	document.getElementById('resign').classList.add('noClick');
@@ -1671,11 +1707,11 @@ function lit() {
 
 	board.removeEventListener('mousedown', exitReviewMode);
 
-	// covers a draw if only kings remain in play
+	// covers a draw if only kings remain for each side
 	if (activeSide.length === 1) {
 		if (passiveSide.length === 1) {
 			message = "only kings remain: game ends in a draw";
-			setTimeout(() => gameOverModal(), 500);
+			setTimeout( () => gameOverModal(), 500 );
 			clearInterval(runTimer);
 			document.getElementById('resign').classList.add('noClick');
 			return;
@@ -1797,7 +1833,21 @@ function lit() {
 /////////////////////////////
 
 window.onload = function() {
-	
+	/*
+	var socket = io();
+	document.querySelector('button').addEventListener('click', function(e) {
+		e.preventDefault();
+		socket.emit('chat message', document.querySelector('#m').value);
+		document.querySelector('#m').value = '';
+		return false;
+	});
+	socket.on('chat message', function(msg) {
+		var elem = document.createElement('LI');
+		var text = document.createTextNode(msg);
+		elem.appendChild(text);
+		document.querySelector('#messages').appendChild(elem);
+	});
+	*/
 	document.getElementById('start').addEventListener('click', function getMinutes() {
 		timerSet = document.getElementById('timeSet').value;
 		if (timerSet) {
@@ -1845,4 +1895,6 @@ window.onload = function() {
 			}
 		}
 	});
+
+	
 }
