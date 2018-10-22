@@ -807,9 +807,12 @@ function resign() {
 
 	clearInterval(runTimer);
 
+<<<<<<< HEAD
 	document.getElementById('modalBlue').classList.remove("showModal");
 	document.getElementById('modalOrange').classList.remove("showModal");
 
+=======
+>>>>>>> fa9de4432d49cebda58edab559f8618131ccb80d
 	if (litIds.length) {
 		litIds.forEach( id => {
 			document.getElementById(id).removeEventListener('click', movePiece);
@@ -842,6 +845,7 @@ function resign() {
 		});
 	}
 
+<<<<<<< HEAD
 	if (castleIds.length) {
 		castleIds.forEach( id => {
 			document.getElementById(id).classList.remove('castleLit');
@@ -849,6 +853,8 @@ function resign() {
 		})
 	}
 
+=======
+>>>>>>> fa9de4432d49cebda58edab559f8618131ccb80d
 	activeSide.forEach( activePiece => {
 		activePiece.removeEventListener('click', wherePieceCanMove);
 	});
@@ -1905,4 +1911,6 @@ window.onload = function() {
 			}
 		}
 	});
+
+	
 }
