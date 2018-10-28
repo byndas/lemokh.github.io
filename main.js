@@ -1981,7 +1981,7 @@ window.onload = function() {
 	
 	var socket = io();
 	
-	document.querySelector('send').addEventListener('click', function(e) {
+	document.getElementById('send').addEventListener('click', function(e) {
 		e.preventDefault();
 		socket.emit('chat message', document.querySelector('#m').value);
 		document.querySelector('#m').value = '';
