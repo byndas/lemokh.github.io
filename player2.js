@@ -39,9 +39,6 @@ var board = document.getElementById('board'),
 
 	setBoard = blues.concat(oranges).map(piece => [piece.id, piece.src]),
 
-	elem = document.createElement('H1'),
-	spinner = document.createElement('H1'),
-
 	/////////////////////////////////////////////////////////////////////
 
 	userInput = 10,
@@ -121,7 +118,7 @@ function flipBoard() {
 	}
 }
 
-////////////////////
+///////////////////////////
 
 function inCheck() {
 
@@ -217,7 +214,7 @@ function inCheck() {
 	}
 }
 
-/////////////////////////////
+///////////////////////////
 
 function selectGreyPiece(e) {
 
@@ -300,7 +297,7 @@ function moveGreyPiece(e) {
 	toggleSides();
 }
 
-///////////////////////////////
+///////////////////////////
 
 function wherePieceCanMove(e) {
 	// if not first click of this turn
@@ -764,7 +761,7 @@ function pinnedPieceLit() {
 	}
 }
 
-////////////////////////
+///////////////////////////
 
 function toggleSides() {
 	// removes click-listeners from activePieces
@@ -901,7 +898,7 @@ function forceDraw() { // discerns if a draw is forced
 		}
 	}
 }
-//////////////////////
+///////////////////////////
 
 function onBoard(id) {
 	if (id[0] >= 0) {
@@ -1230,7 +1227,7 @@ function kingLit() {
 	});
 } // fills litIds with ids where king can move
 
-////////////////////////////
+////////////////////////////////////////////////////////
 
 function pawnAttacks(pawn) {
 
@@ -1567,7 +1564,7 @@ function checkingSpace(somePiece, someId) {
 	}
 } // returns true/false if somePiece can attack someId
 
-///////////////////////////////
+////////////////////////////////////////////////////////////
 
 function reviewClickHandler() {
 	
@@ -1741,7 +1738,7 @@ function showNextMove() {
 	}
 }
 
-////////////////
+////////////////////////////
 
 function lit() {
 
@@ -1870,128 +1867,78 @@ function lit() {
 	}
 }
 
-function ignoreKeys(e) {
-	switch(e.keyCode) {
-		case 45: case 46: return e.preventDefault();
-		case 13: document.getElementById('start').click();
-	}
-}
-///////////////////////
-
-function cancelGame() {
-
-	document.getElementById('start').removeEventListener('click', cancelGame);
-	document.getElementById('start').addEventListener('click', getMinutes);
-	document.getElementById('start').innerHTML = 'SET TIMER';
-
-	elem.classList.add('gameLengths');
-	elem.parentNode.removeChild(elem);
-
-	spinner.style.display = 'none';
-	document.getElementById('time1').style.display = 'none';
-	document.getElementById('time2').style.display = 'none';
-
-	// make chat input disappear
-
-	////////////////////////////////
-
-	document.getElementById('chooseGame').style.display = 'flex';
-	document.getElementById('offerGame').style.display = 'block';
-	document.getElementById('timeSet').style.display = 'block';
-}
-
-///////////////////////
-
-function getMinutes() {
-
-	timerSet = document.getElementById('timeSet').value;
-	
-	if (timerSet) {
-		if (timerSet > 0) {
-			if (timerSet < 1000) {
-				//////////////////////////
-				elem.innerHTML = timerSet;
-				elem.classList.add('gameLengths');
-				document.getElementById('gameList').appendChild(elem);
-
-				document.getElementById('start').removeEventListener('click', getMinutes);
-				document.getElementById('start').addEventListener('click', cancelGame);
-				document.getElementById('start').innerHTML = 'CANCEL GAME';
-
-				document.getElementById('chooseGame').style.display = 'none';
-				document.getElementById('offerGame').style.display = 'none';
-				document.getElementById('timeSet').style.display = 'none';
-				
-				spinner.style.display = 'flex';
-				spinner.innerHTML = 'AWAITING OPPONENT...';
-				document.querySelector('.modalContent').appendChild(spinner).classList.remove('gameLengths');
-				
-				// make chat input appear under left clock
-
-				/////////////////////////////////////////////////////////////////////////////////////////////
-				userInput = +(timerSet);
-
-				clock1 = document.getElementById('time1');
-				clock1.innerHTML = userInput + ':00';
-
-				clock2 = document.getElementById('time2');
-				clock2.innerHTML = userInput + ':00';
-
-				blueTime = {
-					minutes: userInput,
-					tenths: 0,
-					hundredths: 0
-				};
-
-				orangeTime = {
-					minutes: userInput,
-					tenths: 0,
-					hundredths: 0
-				};
-
-				function showTimers(timer) {
-					timer.style.display = 'block';
-					timer.style.visibility = "visible";
-					timer.style.opacity = '1';
-					timer.style.transform = 'scale(1.0)';
-					timer.style.transition = 'visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s';
-				}
-
-				showTimers(document.getElementById('time1'));
-				showTimers(document.getElementById('time2'));
-
-				// once socket confirms that player2 accepts game
-				// document.getElementById('modal').style.display = 'none';
-				// document.getElementById('resign').classList.remove('noClick');
-				// lit();
-			}
-		}
-	}
-}
-
-////////////////////////////
+/////////////////////////////
 
 window.onload = function() {
 
-	document.getElementById('timeSet').addEventListener('keypress', ignoreKeys);
+    // flips board
+    setBoard.forEach(arr => document.getElementById(arr[0]).classList.toggle('rotateBoard'));
+    board.classList.toggle('rotateBoard');
 
-	document.getElementById('resign').classList.add('noClick');
-
-	document.getElementById('start').addEventListener('click', getMinutes);
-	
+	/*
 	var socket = io();
-	
-	document.querySelector('send').addEventListener('click', function(e) {
+	document.querySelector('button').addEventListener('click', function(e) {
 		e.preventDefault();
 		socket.emit('chat message', document.querySelector('#m').value);
 		document.querySelector('#m').value = '';
 		return false;
 	});
-	
 	socket.on('chat message', function(msg) {
-		var chatLine = document.createElement('LI');
+		var elem = document.createElement('LI');
 		var text = document.createTextNode(msg);
-		chatLine.appendChild(text);
-		document.querySelector('#messages').appendChild(chatLine);
+		elem.appendChild(text);
+		document.querySelector('#messages').appendChild(elem);
 	});
+    */
+
+    ///////////////////////////////////////////
+    // get timerSet from player1.js socket send
+
+    userInput = someInteger;
+
+    clock1 = document.getElementById('time1');
+    clock1.innerHTML = userInput + ':00';
+
+    clock2 = document.getElementById('time2');
+    clock2.innerHTML = userInput + ':00';
+
+    blueTime = {
+        minutes: userInput,
+        tenths: 0,
+        hundredths: 0
+    };
+
+    orangeTime = {
+        minutes: userInput,
+        tenths: 0,
+        hundredths: 0
+    };
+
+    // document.getElementById('modal').style.display = "none";
+
+    function showTimers(timer) {
+        timer.style.visibility = "visible";
+        timer.style.opacity = '1';
+        timer.style.transform = 'scale(1.0)';
+        timer.style.transition = 'visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s';
+    }
+
+    showTimers(document.getElementById('time1'));
+    showTimers(document.getElementById('time2'));
+    
+    lit(); // activate game
 }
+
+// within lit()... use tertiary style
+// if (moveHistory.length === even || 0) { awaitTurn(); } 
+function awaitTurn() {
+    // make activeSide un-clickable
+
+    // await player1 move from socket.io
+
+    // make activeSide re-clickable
+
+    // trigger both clicks
+}
+
+// once you move, send your clicks to player1, then awaitTurn()
