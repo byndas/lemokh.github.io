@@ -1521,10 +1521,7 @@ function rookAttacks(rook) {
 } // returns true/false if rook can attack checkSpaceId
 
 function queenAttacks(queen) {
-
-	if (bishopAttacks(queen)) { return true; }
-	if (rookAttacks(queen)) { return true; }
-	return false;
+	return ( bishopAttacks(queen) || rookAttacks(queen) );
 } // returns true/false if queen can attack checkSpaceId
 
 function kingAttacks(king) {
@@ -1888,12 +1885,9 @@ function cancelGame() {
 	elem.parentNode.removeChild(elem);
 
 	spinner.style.display = 'none';
+	// document.getElementById('chat').style.display = 'none';
 	document.getElementById('time1').style.display = 'none';
 	document.getElementById('time2').style.display = 'none';
-
-	// make chat input disappear
-
-	////////////////////////////////
 
 	document.getElementById('chooseGame').style.display = 'flex';
 	document.getElementById('offerGame').style.display = 'block';
@@ -1921,12 +1915,11 @@ function getMinutes() {
 				document.getElementById('chooseGame').style.display = 'none';
 				document.getElementById('offerGame').style.display = 'none';
 				document.getElementById('timeSet').style.display = 'none';
+				// document.getElementById('chat').style.display = 'block';
 				
 				spinner.style.display = 'flex';
 				spinner.innerHTML = 'AWAITING OPPONENT...';
 				document.querySelector('.modalContent').appendChild(spinner).classList.remove('gameLengths');
-				
-				// make chat input appear under left clock
 
 				/////////////////////////////////////////////////////////////////////////////////////////////
 				userInput = +(timerSet);
@@ -1959,7 +1952,8 @@ function getMinutes() {
 
 				showTimers(document.getElementById('time1'));
 				showTimers(document.getElementById('time2'));
-
+				// showTimers(document.getElementById('chat'));
+				/////////////////////////////////////////////////
 				// once socket confirms that player2 accepts game
 				// document.getElementById('modal').style.display = 'none';
 				// document.getElementById('resign').classList.remove('noClick');
@@ -1979,19 +1973,19 @@ window.onload = function() {
 
 	document.getElementById('start').addEventListener('click', getMinutes);
 	
-	var socket = io();
+	// var socket = io();
 	
-	document.getElementById('send').addEventListener('click', function(e) {
-		e.preventDefault();
-		socket.emit('chat message', document.querySelector('#m').value);
-		document.querySelector('#m').value = '';
-		return false;
-	});
+	// document.querySelector('send').addEventListener('click', function(e) {
+	// 	e.preventDefault();
+	// 	socket.emit('chat message', document.querySelector('#m').value);
+	// 	document.querySelector('#m').value = '';
+	// 	return false;
+	// });
 	
-	socket.on('chat message', function(msg) {
-		var chatLine = document.createElement('LI');
-		var text = document.createTextNode(msg);
-		chatLine.appendChild(text);
-		document.querySelector('#messages').appendChild(chatLine);
-	});
+	// socket.on('chat message', function(msg) {
+	// 	var chatLine = document.createElement('LI');
+	// 	var text = document.createTextNode(msg);
+	// 	chatLine.appendChild(text);
+	// 	document.querySelector('#messages').appendChild(chatLine);
+	// });
 }

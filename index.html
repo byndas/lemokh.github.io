@@ -8,7 +8,7 @@
     <link rel='stylesheet' href='index.css'>
     <title>Chess</title>
   </head>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
 
   <body class='noselect'>
 
@@ -20,9 +20,7 @@
         </div>
         <div class='modalContent'>
           <h1 id='offerGame'>OFFER GAME :</h1>
-          <input id='timeSet' type='number' value='10' min='1' 
-          required autofocus onkeydown='javascript: return event.keyCode !== 69'
-          />
+          <input id='timeSet' type='number' value='10' min='1' required autofocus onkeydown='javascript: return event.keyCode !== 69' />
           <button id='start'>SET TIMER</button>
         </div>
       </div>
@@ -62,17 +60,19 @@
       </player1>
 
       <div class='timePawnEvolve'>
+        
         <div id='time1' class='time'></div>
         
-        <div id='chat'>
-          <ul id="messages"></ul>
+        <!-- <div id='chat'>
           <form action="">
             <input id="m" autocomplete="off" />
             <button id='send'>Send</button>
           </form>
-        </div>
+          <ul id="messages"></ul>
+        </div> -->
         
         <div id='modalGameOverBlue' class='modal'></div>
+        
         <div id='modalBlue' class='modal'>
           <img id='blueQueen' data-name='queen' data-side='blue' src='./images/blueQueen.png'>
           <img id='blueKnight' data-name='knight' data-side='blue' src='./images/blueKnight.png'>
