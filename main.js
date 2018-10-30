@@ -1953,23 +1953,25 @@ function getMinutes() {
 				showTimers(document.getElementById('time1'));
 				showTimers(document.getElementById('time2'));
 				showTimers(document.getElementById('chat'));
-				/////////////////////////////////////////////////
+
+				////////////////////////////////////////////
 
 				// starts up socket.io
 				var socket = io();
-				document.querySelector('button').addEventListener('click', function(e) {
+				document.getElementById('chat').addEventListener('click', function(e) {
 					e.preventDefault();
-					socket.emit('chat message', document.querySelector('#m').value);
-					document.querySelector('#m').value = '';
+					socket.emit('chat message', document.getElementById('m').value);
+					document.getElementById('m').value = '';
 					return false;
 				});
 				socket.on('chat message', function(msg) {
 					var newLI = document.createElement('LI');
 					var text = document.createTextNode(msg);
 					newLI.appendChild(text);
-					document.querySelector('#messages').appendChild(newLI);
+					document.getElementById('messages').appendChild(newLI);
 				});
-
+				
+				//////////////////////////////////////////////////////////
 				// once socket confirms that player2 accepts game, do this
 				// document.getElementById('modal').style.display = 'none';
 				// document.getElementById('resign').classList.remove('noClick');
