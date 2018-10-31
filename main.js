@@ -1958,7 +1958,7 @@ function getMinutes() {
 
 				// starts up socket.io
 				var socket = io();
-				document.getElementById('chat').addEventListener('click', function(e) {
+				document.getElementById('send').addEventListener('click', function(e) {
 					e.preventDefault();
 					socket.emit('chat message', document.getElementById('m').value);
 					document.getElementById('m').value = '';
@@ -1990,20 +1990,4 @@ window.onload = function() {
 	document.getElementById('resign').classList.add('noClick');
 
 	document.getElementById('start').addEventListener('click', getMinutes);
-	
-	// var socket = io();
-	
-	// document.querySelector('send').addEventListener('click', function(e) {
-	// 	e.preventDefault();
-	// 	socket.emit('chat message', document.querySelector('#m').value);
-	// 	document.querySelector('#m').value = '';
-	// 	return false;
-	// });
-	
-	// socket.on('chat message', function(msg) {
-	// 	var chatLine = document.createElement('LI');
-	// 	var text = document.createTextNode(msg);
-	// 	chatLine.appendChild(text);
-	// 	document.querySelector('#messages').appendChild(chatLine);
-	// });
 }
