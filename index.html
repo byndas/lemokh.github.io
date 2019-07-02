@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
   <head>
     <meta charset='UTF-8'>
@@ -8,13 +8,13 @@
     <link rel='stylesheet' href='index.css'>
     <title>Chess</title>
   </head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
-  <!-- <script src="/socket.io/lib/socket.io.js"></script> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js'></script>
+  <!-- <script src='/socket.io/lib/socket.io.js'></script> -->
   <body class='noselect'>
 
     <div id='modal'>
       <div id='container'>
-        <div id="chooseGame">
+        <div id='chooseGame'>
           <h1 id='acceptGame'>ACCEPT GAME :</h1>
           <div id='gameList'></div>
         </div>
@@ -64,11 +64,11 @@
         <div id='time1' class='time'></div>
         
         <div id='chat'>
-          <form action="">
-            <input id="m" autocomplete="off" />
+          <form action=''>
+            <input id='m' autocomplete='off' />
             <button id='send'>Send</button>
           </form>
-          <ul id="messages"></ul>
+          <ul id='messages'></ul>
         </div>
         
         <div id='modalGameOverBlue' class='modal'></div>
@@ -76,8 +76,8 @@
         <div id='modalBlue' class='modal'>
           <img id='blueQueen' data-name='queen' data-side='blue' src='./images/blueQueen.png'>
           <img id='blueKnight' data-name='knight' data-side='blue' src='./images/blueKnight.png'>
-          <img id="blueRook" data-name='rook' data-side='blue' src="./images/blueRook.png">
-          <img id="blueBishop" data-name='bishop' data-side='blue' src="./images/blueBishop.png">
+          <img id='blueRook' data-name='rook' data-side='blue' src='./images/blueRook.png'>
+          <img id='blueBishop' data-name='bishop' data-side='blue' src='./images/blueBishop.png'>
         </div>
         
       </div>
@@ -168,24 +168,24 @@
       <div class='timePawnEvolve'>
         <div id='time2' class='time'></div>
         <div id='modalGameOverOrange' class='modal'></div>
-        <div id="modalOrange" class='modal'>
-          <img id="orangeQueen" data-name='queen' data-side='orange' src="./images/orangeQueen.png">
-          <img id="orangeKnight" data-name='knight' data-side='orange' src="./images/orangeKnight.png">
-          <img id="orangeRook" data-name='rook' data-side='orange' src="./images/orangeRook.png">
-          <img id="orangeBishop" data-name='bishop' data-side='orange' src="./images/orangeBishop.png">
+        <div id='modalOrange' class='modal'>
+          <img id='orangeQueen' data-name='queen' data-side='orange' src='./images/orangeQueen.png'>
+          <img id='orangeKnight' data-name='knight' data-side='orange' src='./images/orangeKnight.png'>
+          <img id='orangeRook' data-name='rook' data-side='orange' src='./images/orangeRook.png'>
+          <img id='orangeBishop' data-name='bishop' data-side='orange' src='./images/orangeBishop.png'>
         </div>
       </div>
 
       <player2>
         <showMoves>
           <button class='btn' onclick='showFirstMove()'>
-            <img class='view' src="./images/moveZero.png" />
+            <img class='view' src='./images/moveZero.png' />
           </button>
           <button class='btn' onclick='showPriorMove()'>
-              <img class='view' src="./images/rewind.png" />
+              <img class='view' src='./images/rewind.png' />
           </button>
           <button class='btn' onclick='showNextMove()'>
-              <img class='view' src="./images/play.png" />
+              <img class='view' src='./images/play.png' />
           </button>
         </showMoves>
         
@@ -214,7 +214,7 @@
       </player2>
 
     </game>
-    <!-- <script src="lib/socket.io-1.2.0.js"></script> -->
+    <!-- <script src='lib/socket.io-1.2.0.js'></script> -->
     <script src='index.js'></script>
     <script src='main.js'></script>
   </body>
